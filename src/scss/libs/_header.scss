@@ -1,0 +1,199 @@
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 0px;
+    overflow: hidden;
+    z-index: 100;
+
+    &__sign {
+        &-icon {
+            background: $yellowColor;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 0 auto;
+            margin-bottom: 10px;
+
+        }
+
+        &-text {
+            color: $whiteColor;
+            font-weight: 700;
+            font-size: 0.6rem;
+            line-height: 0.8rem;
+        }
+    }
+}
+
+.logo {
+    a {
+        color: black;
+        font-size: 2rem;
+        line-height: 2.25rem;
+    }
+}
+
+.menu {
+    display: flex;
+    column-gap: 25px;
+    align-items: center;
+    
+    &__item {
+        
+        &-link {
+            color: $whiteColor;
+            font-size: 1rem;
+            position: relative;
+            transition: transform 0.3 linear;
+            
+            
+            &:after {
+                width: 100%;
+                content: '';
+                background: linear-gradient(180deg, rgba(243, 203, 60, 0.75) -6.1%, rgba(31, 25, 6, 0) 86.59%);
+                opacity: 0;
+                height: 70px;
+                position: absolute;
+                top: -45px;
+                left: 0;
+                transition: 0.5s linear;
+            }
+            &::before {
+                width: 100%;
+                content: '';
+                background: $yellowColor;
+                opacity: 0;
+                height: 5px;
+                position: absolute;
+                top: -45px;
+                left: 0;
+                transition: 0.05s linear;
+            }
+            
+            &.active {
+                &:after, &::before {
+                    opacity: 1;
+                }
+                color: $yellowColor;
+            }
+        }
+    }
+
+}
+
+.burger {
+    display: none;
+    cursor: pointer;
+}
+
+@media screen and (max-width: $burgerBreakpoint) {
+    .navbar__sign {
+        display: none;
+        &-icon {
+            display: none;
+        }
+        
+        &.active {
+            position: absolute;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: inline-block;
+            z-index: 101;
+            padding: 10px 20px;
+            border-radius: 5px;
+            background: linear-gradient(360deg, #111003 18.38%, #0094FF 290.42%);
+            font-size: 1rem;
+            line-height: 1em;
+        }
+    }
+    .menu {
+        position: fixed;
+        background: linear-gradient(360deg, #111003 18.38%, #0094FF 290.42%);
+        display: none;
+        animation: fade .2s ease-in-out;
+        
+        &.active {
+            overflow: hidden;
+            display: flex;
+            left: 0;
+            top: 0;
+            height: 100%;
+            width: 100%;
+            flex-direction: column;
+            pointer-events: all;
+            justify-content: center;
+            align-items: center;
+            z-index: 100;
+        }
+    }
+    
+    .burger {
+        display: block;
+        position: relative;
+        height: 20px;
+        width: 30px;
+        cursor: pointer;
+        z-index: 101;
+
+        &__line {
+            display: flex;
+            width: 30px;
+            height: 2px;
+            background: $burgerColor;
+            transition: .3s all ease;
+            position: absolute;
+            border-radius: 5px;
+            left: 0;
+
+            &-top {
+                top: 0;
+            }
+
+            &-mid {
+                top: 50%;
+
+            }
+
+            &-bottom {
+                bottom: 0;
+            }
+        }
+
+        &.active {
+            .burger__line-top {
+                background: $burgerActiveColor;
+                transition: .3s all ease;
+                transform: translateY(8px) rotate(45deg);
+            }
+
+            .burger__line-mid {
+                transform: translateX(50px);
+                transition: .3s all ease;
+            }
+
+            .burger__line-bottom {
+                background: $burgerActiveColor;
+                transform: translateY(-10px) rotate(-45deg);
+                transition: .3s all ease;
+            }
+
+        }
+    }
+
+    .menu__item {
+        margin-top: 15px;
+    }
+
+    .menu__item-link {
+        color: white;
+
+        &::after, &::before {
+            display: none;  
+        }
+    }
+}

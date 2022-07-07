@@ -1,0 +1,9 @@
+/node_modules
+/build
+/src/components/libs
+package-lock.json
+*.iml
+*.xml
+.idea
+.vs_code
+.DS_Store
