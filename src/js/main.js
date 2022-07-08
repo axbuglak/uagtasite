@@ -59,17 +59,55 @@ burgerMenu();
 
 (function () {
     const up = document.querySelector('.footer__array');
-    up.addEventListener('click', () => {
-        window.scrollTo(0, 0);
-    });
+    if(up) {
+        up.addEventListener('click', () => {
+            window.scrollTo(0, 0);
+        });
+    }
 })();
 
 function setOnline() {
     const onlineText = document.querySelector('.hero__content-online-text p');
-    let onlineNow = 1024;
-    onlineText.textContent = onlineNow;
-
-    return onlineText;
+    if(onlineText) {
+        let onlineNow = 1024;
+        onlineText.textContent = onlineNow;
+    
+        return onlineText;
+    }
 }
 
 setOnline();
+
+
+(function() {
+    const animItems = document.querySelectorAll('.guid__steps');
+    if (animItems.length > 0) {
+        window.addEventListener('scroll', animOnScroll)
+        function animOnScroll() {
+            for (let index = 0; index < animItems.length; index++) {
+                const animItem = animItems[index];
+                const animItemHeight = animItem.offsetHeight;
+                const animItemOffset = offset(animItem).top;
+                const animStart = 4;
+
+                let animItemPoint = window.innerHeight - animItemHeight / animStart
+
+                if(animItemHeight > window.innerHeight){
+                    animItemPoint = window.innerHeight - window.innerHeight / animStart;
+                }
+                
+                if((pageYOffset > animItemOffset - animItemPoint) && pageYOffset < (animItemOffset+animItemHeight)){
+                    animItem.classList.add('active')
+                } else {
+                    animItem.classList.remove('active')
+                }
+            }
+        }
+        function offset (el) {
+            const rect = el.getBoundingClientRect(),
+                scrollLeft = window.pageXOffset || document.documentElement.scrollLeft,
+                scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+            return {top: rect.top + scrollTop, left: rect.left + scrollLeft}
+        }
+    }
+})()
