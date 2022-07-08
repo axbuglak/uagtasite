@@ -2,6 +2,7 @@
     display: flex;
     align-items: flex-end;
     justify-content: center;
+    column-gap: 30px;
     margin: 0 auto;
 
     @media (max-width: $breakpoint768) {
@@ -20,25 +21,23 @@
     &__steps {
         margin-top: 50px;
         transition: 0.3s linear;
-        transform: scaleY(0);
-
+        transform: translateX(-300px);
+        opacity: 0;
+        
         &.active {
-            transform: scaleY(1);
+            opacity: 1;
+            transform: translateX(0px);
         }
 
-        @media (max-width: $breakpoint480) {
-            transform: translateX(-200px);
+        @media (max-width: $breakpoint768) {
             margin-top: 30px;
-            &.active {
-                transform: translateX(0px);
-            }
         }
     }
 
     // .guid__info
     &__info {
         display: flex;
-        justify-content: center;
+        justify-content: space-around;
         align-items: center;
 
     }
@@ -66,8 +65,8 @@
     // .guid__hero-img
     &__hero-img {
         position: relative;
-        max-width: 90%;
-        height: 200px;
+        width: 100%;
+        max-height: 100%;
     }
 
 
@@ -86,7 +85,7 @@
 
 
         @media (max-width: $breakpoint768) {
-            left: 100px;
+            left: 30px;
         }
     }
 
@@ -97,6 +96,5 @@
         transform: translateY(-45%);
         row-gap: 10px;
 
-        @media (max-width: $breakpoint480) {}
     }
 }

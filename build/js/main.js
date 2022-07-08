@@ -111,3 +111,19 @@ setOnline();
         }
     }
 })()
+
+function scrollDown() {
+    const btn = document.querySelector('#btnGuid');
+    const guid = document.querySelector('#guid');
+    if(guid && btn) {
+        btn.addEventListener('click', () => {
+            guid.scrollIntoView({
+                block: 'nearest',
+                behavior: 'smooth',
+            });
+    
+        })
+    }
+    
+}
+scrollDown()
