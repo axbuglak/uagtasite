@@ -111,15 +111,3 @@ setOnline();
         }
     }
 })()
-
-
-function scrollToGuid () {
-    const btn = document.querySelector('.section__btn');
-    const guid = document.querySelector('#guid');
-    if (btn && guid) {
-        btn.addEventListener('click', () => {
-            guid.scrollIntoView({ block: 'center', behavior: 'smooth' });
-        })
-    }
-}
-scrollToGuid()
