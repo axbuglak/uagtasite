@@ -7,23 +7,23 @@ function burgerMenu() {
     const body = document.querySelector('body');
     const navbarMenu = document.querySelector('#navbarMenu');
 
-    menuItems.forEach(singleItem => {
-        singleItem.addEventListener('click', event => {
+    menuItems.forEach((singleItem) => {
+        singleItem.addEventListener('click', (event) => {
             if (event.target.classList.contains('.menu')) return null;
-            
-            menuItems.forEach(singleItem => {
+
+            menuItems.forEach((singleItem) => {
                 singleItem.classList.remove('active');
-            })
-            
+            });
+
             event.target.classList.add('active');
-            
+
             const attribute = event.target.dataset.trigger;
-            
+
             localStorage.setItem('itemAttribute', attribute);
-        })
+        });
         if (localStorage.getItem('itemAttribute')) {
             const localDataAttr = localStorage.getItem('itemAttribute');
-            
+
             menuItems?.forEach((singleItem) => {
                 if (singleItem.dataset.trigger === localDataAttr) {
                     singleItem.classList.add('active');
@@ -31,7 +31,7 @@ function burgerMenu() {
             });
         }
     });
-    
+
     burger.addEventListener('click', () => {
         if (!navbarMenu.classList.contains('active')) {
             navbarMenu.classList.add('active');
@@ -59,7 +59,7 @@ burgerMenu();
 
 (function () {
     const up = document.querySelector('.footer__array');
-    if(up) {
+    if (up) {
         up.addEventListener('click', () => {
             window.scrollTo(0, 0);
         });
@@ -68,21 +68,20 @@ burgerMenu();
 
 function setOnline() {
     const onlineText = document.querySelector('.hero__content-online-text p');
-    if(onlineText) {
+    if (onlineText) {
         let onlineNow = 1024;
         onlineText.textContent = onlineNow;
-    
+
         return onlineText;
     }
 }
 
 setOnline();
 
-
-(function() {
+(function () {
     const animItems = document.querySelectorAll('.guid__steps');
     if (animItems.length > 0) {
-        window.addEventListener('scroll', animOnScroll)
+        window.addEventListener('scroll', animOnScroll);
         function animOnScroll() {
             for (let index = 0; index < animItems.length; index++) {
                 const animItem = animItems[index];
@@ -90,40 +89,45 @@ setOnline();
                 const animItemOffset = offset(animItem).top;
                 const animStart = 4;
 
-                let animItemPoint = window.innerHeight - animItemHeight / animStart
+                let animItemPoint =
+                    window.innerHeight - animItemHeight / animStart;
 
-                if(animItemHeight > window.innerHeight){
-                    animItemPoint = window.innerHeight - window.innerHeight / animStart;
+                if (animItemHeight > window.innerHeight) {
+                    animItemPoint =
+                        window.innerHeight - window.innerHeight / animStart;
                 }
-                
-                if((pageYOffset > animItemOffset - animItemPoint) && pageYOffset < (animItemOffset+animItemHeight)){
-                    animItem.classList.add('active')
+
+                if (
+                    pageYOffset > animItemOffset - animItemPoint &&
+                    pageYOffset < animItemOffset + animItemHeight
+                ) {
+                    animItem.classList.add('active');
                 } else {
-                    animItem.classList.remove('active')
+                    animItem.classList.remove('active');
                 }
             }
         }
-        function offset (el) {
+        function offset(el) {
             const rect = el.getBoundingClientRect(),
-                scrollLeft = window.pageXOffset || document.documentElement.scrollLeft,
-                scrollTop = window.pageYOffset || document.documentElement.scrollTop;
-            return {top: rect.top + scrollTop, left: rect.left + scrollLeft}
+                scrollLeft =
+                    window.pageXOffset || document.documentElement.scrollLeft,
+                scrollTop =
+                    window.pageYOffset || document.documentElement.scrollTop;
+            return { top: rect.top + scrollTop, left: rect.left + scrollLeft };
         }
     }
-})()
+})();
 
 function scrollDown() {
     const btn = document.querySelector('#btnGuid');
     const guid = document.querySelector('#guid');
-    if(guid && btn) {
+    if (guid && btn) {
         btn.addEventListener('click', () => {
             guid.scrollIntoView({
                 block: 'center',
                 behavior: 'smooth',
             });
-    
-        })
+        });
     }
-    
 }
-scrollDown()
+scrollDown();
