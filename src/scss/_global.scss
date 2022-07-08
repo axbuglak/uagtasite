@@ -42,7 +42,6 @@ body {
     border: 1px solid $yellowColor;
     padding: 6px 7px;
     border-radius: 64px;
-    transition: 0.2s linear;
     position: relative;
 
     div {
@@ -59,9 +58,6 @@ body {
         }
     }
 
-    &:hover {
-        transform: scale(1.03);
-    }
 
     @media (max-width: $breakpoint480) {
         padding: 3px 4px;

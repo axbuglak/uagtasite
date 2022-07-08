@@ -1,60 +1,43 @@
 .guid {
     text-align: center;
     margin: 0 auto;
+    display: flex;
+
+    @media (max-width: $breakpoint768) {
+        flex-wrap: wrap;
+    }
 
     // .guid__steps
     &__steps {
         margin-top: 50px;
-        // ***** ANIM 1 ***** //
-        opacity: 0;
-        transform: translateX(-200px);
-        // ***** ANIM 1 ***** //
         transition: 0.3s linear;
-        // ***** ANIM 2 ***** //
-        // transform: scaleX(0);
-        // ***** ANIM 2 ***** //
+        transform: scaleY(0);
+
         &.active {
-            // ***** ANIM 1 ***** //
-            transform: translateX(0px);
-            opacity: 1;
-            // ***** ANIM 1 ***** //
-
-
-            // ***** ANIM 2 ***** //
-                // transform: scaleX(1);
-            // ***** ANIM 2 ***** //
+            transform: scaleY(1);
         }
-        
     }
 
     // .guid__info
     &__info {
         display: flex;
-        justify-content: space-between;
+        justify-content: space-evenly;
         align-items: center;
 
     }
 
     // .guid__info-img
     &__info-img {
-        max-width: 350px;
-
-        @media (max-width: $breakpoint480) {
-            max-width: 100px;
-        }
+        max-width: 100px;
     }
 
     // .guid__info-title
     &__info-title {
         font-weight: 700;
-        font-size: 1.75rem;
-        line-height: 37px;
+        font-size: 1rem;
+        line-height: 20px;
         color: $whiteColor;
         text-align: left;
-        @media (max-width: $breakpoint480) {
-            font-size: 1rem;
-            line-height: 20px;
-        }
     }
 
     // .guid__hero
@@ -65,29 +48,37 @@
     // .guid__hero-img
     &__hero-img {
         position: relative;
-        width: 100%;
+        width: 80%;
     }
 
-    
+
     // .guid__hero-btn
     &__hero-btn {
         position: absolute;
-        top: 50%;
-        transform: translateY(-50%);
-        left: 30px;
-        @media (max-width: $breakpoint480) {
-            top: 70%;
-            transform: translateY(-30%);
+        top: 70%;
+        transform: translateY(-30%);
+        left: 50px;
+        padding: 3px;
+
+        div {
+            padding: 5px 10px;
+            font-size: 10px;
+        }
+
+
+        @media (max-width: $breakpoint768) {
+            left: 100px;
         }
     }
+
     &__hero-links-btn {
         display: flex;
         flex-direction: column;
-        row-gap: 20px;
+        top: 55%;
+        transform: translateY(-45%);
+        row-gap: 10px;
+
         @media (max-width: $breakpoint480) {
-            row-gap: 10px;
-            top: 60%;
-            transform: translateY(-40%);
         }
     }
 }
