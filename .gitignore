@@ -1,5 +1,4 @@
 /node_modules
-/build
 /src/components/libs
 package-lock.json
 *.iml
