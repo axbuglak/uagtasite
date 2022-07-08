@@ -118,7 +118,7 @@ function scrollDown() {
     if(guid && btn) {
         btn.addEventListener('click', () => {
             guid.scrollIntoView({
-                block: 'nearest',
+                block: 'center',
                 behavior: 'smooth',
             });
     
