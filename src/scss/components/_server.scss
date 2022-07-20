@@ -5,6 +5,7 @@
     &__item {
         position: relative;
         padding: 25px 50px;
+
         @media (max-width: $breakpoint480) {
             padding: 5px 15px;
         }
@@ -12,11 +13,26 @@
 
     &__online {
         position: absolute;
-        right: 42px;
-        top: 60%;
-        transform: translateY(-41%);
+        left: 260px;
+        top: 51%;
+        transform: translateY(-49%);    
+        width: 100px;
+        height: 100px;
         @media (max-width: $breakpoint480) {
-            display: none;
+            left: 135px;
+            height: 50px;
+            width: 50px;
+            top: 55%;
+        }
+
+        &-circle-full {
+            fill: none;
+            stroke-width: 8px;
+            stroke: rgba(0, 0, 0, 0.2);
+
+            @media (max-width: $breakpoint480) {
+                stroke-width: 3px;
+            }
         }
     }
 
@@ -24,9 +40,11 @@
         position: absolute;
         right: 289px;
         top: 40%;
+
         @media (max-width: $breakpoint480) {
             left: 150px;
             top: 35%;
+            width: 0.75rem;
         }
     }
 
@@ -37,6 +55,7 @@
         font-size: 13px;
         line-height: 16px;
         color: $whiteColor;
+
         @media (max-width: $breakpoint480) {
             font-size: 7px;
             line-height: 10px;
@@ -51,6 +70,7 @@
 
         color: $whiteColor;
         margin-bottom: 50px;
+
         @media (max-width: $breakpoint480) {
             margin-bottom: 20px;
             font-size: 13px;
@@ -67,6 +87,7 @@
         margin-top: 3px;
         position: relative;
         width: 150px;
+
         @media (max-width: $breakpoint480) {
             width: 100px;
         }
@@ -80,6 +101,7 @@
             width: 40px;
             top: 50%;
             transform: translateY(-50%);
+
             @media (max-width: $breakpoint480) {
                 width: 20px;
                 height: 1px;
@@ -101,6 +123,7 @@
         position: absolute;
         top: 0;
         left: 0;
+
         @media (max-width: $breakpoint480) {
             max-width: 300px;
             max-height: 80px;
@@ -108,14 +131,20 @@
     }
 
     &__circle-one {
-        $OnlineNow: 150;
+        $OnlineNow: -40;
         stroke-dasharray: 360;
         stroke-dashoffset: $OnlineNow;
         transition: 1s linear;
         fill: none;
-        stroke-width: 10px;
+        stroke-width: 8px;
         stroke-linecap: round;
         stroke: #F3CB3C;
-        z-index: 10;
+        
+
+        @media (max-width: $breakpoint480) {
+            stroke-width: 3px;
+            height: 50px;
+            width: 50px;
+        }
     }
 }

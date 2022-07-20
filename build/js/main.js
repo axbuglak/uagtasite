@@ -123,10 +123,18 @@ function scrollDown() {
     const guid = document.querySelector('#guid');
     if (guid && btn) {
         btn.addEventListener('click', () => {
-            guid.scrollIntoView({
-                block: 'center',
-                behavior: 'smooth',
-            });
+            if (window.innerWidth > 768) {
+                guid.scrollIntoView({
+                    block: 'center',
+                    behavior: 'smooth',
+                });
+            }
+            if (window.innerWidth < 768) {
+                guid.scrollIntoView({
+                    block: 'start',
+                    behavior: 'smooth',
+                });
+            }
         });
     }
 }
