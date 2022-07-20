@@ -1,0 +1,121 @@
+.server {
+    margin-top: 30px;
+
+    // .server__item
+    &__item {
+        position: relative;
+        padding: 25px 50px;
+        @media (max-width: $breakpoint480) {
+            padding: 5px 15px;
+        }
+    }
+
+    &__online {
+        position: absolute;
+        right: 42px;
+        top: 60%;
+        transform: translateY(-41%);
+        @media (max-width: $breakpoint480) {
+            display: none;
+        }
+    }
+
+    &__number {
+        position: absolute;
+        right: 289px;
+        top: 40%;
+        @media (max-width: $breakpoint480) {
+            left: 150px;
+            top: 35%;
+        }
+    }
+
+
+    // .server__ip
+    &__ip {
+        font-weight: 700;
+        font-size: 13px;
+        line-height: 16px;
+        color: $whiteColor;
+        @media (max-width: $breakpoint480) {
+            font-size: 7px;
+            line-height: 10px;
+        }
+    }
+
+
+    &__title {
+        font-weight: 700;
+        font-size: 20px;
+        line-height: 24px;
+
+        color: $whiteColor;
+        margin-bottom: 50px;
+        @media (max-width: $breakpoint480) {
+            margin-bottom: 20px;
+            font-size: 13px;
+        }
+    }
+
+    // .server__ip-copy
+    &__ip-copy {
+        text-align: center;
+        font-weight: 500;
+        font-size: 8px;
+        line-height: 10px;
+        color: $whiteColor;
+        margin-top: 3px;
+        position: relative;
+        width: 150px;
+        @media (max-width: $breakpoint480) {
+            width: 100px;
+        }
+
+        &::after,
+        &::before {
+            position: absolute;
+            content: '';
+            background: $whiteColor;
+            height: 2px;
+            width: 40px;
+            top: 50%;
+            transform: translateY(-50%);
+            @media (max-width: $breakpoint480) {
+                width: 20px;
+                height: 1px;
+            }
+        }
+
+        &::after {
+            right: 0;
+        }
+
+        &::before {
+            left: 0;
+        }
+    }
+
+
+
+    &__item-bg {
+        position: absolute;
+        top: 0;
+        left: 0;
+        @media (max-width: $breakpoint480) {
+            max-width: 300px;
+            max-height: 80px;
+        }
+    }
+
+    &__circle-one {
+        $OnlineNow: 150;
+        stroke-dasharray: 360;
+        stroke-dashoffset: $OnlineNow;
+        transition: 1s linear;
+        fill: none;
+        stroke-width: 10px;
+        stroke-linecap: round;
+        stroke: #F3CB3C;
+        z-index: 10;
+    }
+}

@@ -43,7 +43,6 @@ body {
     padding: 6px 7px;
     border-radius: 64px;
     position: relative;
-    cursor: pointer;    
 
     div {
         border-radius: 64px;
@@ -64,7 +63,12 @@ body {
         padding: 3px 4px;
     }
 }
-
+#btnGuid {
+    transform: 0.12s linear;
+    &:hover{
+        transform: scale(1.025);
+    }
+}
 
 @keyframes fade {
     0% {

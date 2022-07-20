@@ -1,0 +1,38 @@
+<div class="server">
+    @@for(let i = 0; i < serverList.length; i++) {
+    <div class="server__item">
+        <img class="server__item-bg" src="`+serverList[i].bg+`" alt="bg" />
+        <h3 class="server__title">`+serverList[i].title+`</h3>
+        <a onclick="return false" href="#" class="server__ip">
+            <p class="server__ip-content">`+serverList[i].ip+`</p>
+            <p class="server__ip-copy" id="copy">Копіювати</p>
+        </a>
+        <svg class="server__online">
+            <circle
+                cx="45"
+                cy="45"
+                r="40"
+                style="
+                    fill: none;
+                    stroke-width: 10px;
+                    stroke: rgba(0, 0, 0, 0.2);
+                "
+            />
+            <circle class="`+serverList[i].circle+`" cx="45" cy="45" r="40" />
+        </svg>
+        <svg
+            class="server__number"
+            width="14"
+            height="28"
+            viewBox="0 0 14 28"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+        >
+            <path
+                d="M1.627 28L6.58 3.196L8.803 5.77H0.613L1.627 0.699998H13.405L7.945 28H1.627Z"
+                fill="white"
+            />
+        </svg>
+    </div>
+    }
+</div>
