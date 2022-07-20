@@ -139,3 +139,16 @@ function scrollDown() {
     }
 }
 scrollDown();
+
+(function () {
+    const btn = document.querySelectorAll('#copy');
+    console.log('🚀 ~ btn', btn);
+
+    if (btn) {
+        btn.forEach((singleBtn) => {
+            singleBtn.addEventListener('click', (event) => {
+                navigator.clipboard.writeText('129.135.593.71:22005');
+            });
+        });
+    }
+})();

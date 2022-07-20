@@ -126,6 +126,7 @@
         position: absolute;
         top: 0;
         left: 0;
+        z-index: -2;
 
         @media (max-width: $breakpoint480) {
             max-width: 300px;

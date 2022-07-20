@@ -3,9 +3,9 @@
     <div class="server__item">
         <img class="server__item-bg" src="`+serverList[i].bg+`" alt="bg" />
         <h3 class="server__title">`+serverList[i].title+`</h3>
-        <a onclick="return false" href="#" class="server__ip">
+        <a onclick="return false" href="#" class="server__ip" id="copy">
             <p class="server__ip-content">`+serverList[i].ip+`</p>
-            <p class="server__ip-copy" id="copy">Копіювати</p>
+            <p class="server__ip-copy">Копіювати</p>
         </a>
         <svg class="server__online">
             <circle

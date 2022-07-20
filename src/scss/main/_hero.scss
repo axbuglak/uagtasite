@@ -13,6 +13,7 @@
         position: absolute;
         right: -60px;
         bottom: 0;
+        z-index: -3;
         @media (max-width: $breakpoint1200) {
             right: 0;
             max-width: 45%;
@@ -30,6 +31,7 @@
         position: absolute;
         left: 0;
         bottom: -5px;
+        z-index: -2;
     }
 
     &__img-bg {
