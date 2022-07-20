@@ -1,5 +1,8 @@
 .server {
     margin-top: 30px;
+    @media (max-width: $breakpoint480) {
+        margin-top: 20px;
+    }
 
     // .server__item
     &__item {
@@ -13,7 +16,7 @@
 
     &__online {
         position: absolute;
-        left: 260px;
+        left: 255px;
         top: 51%;
         transform: translateY(-49%);    
         width: 100px;
@@ -38,13 +41,13 @@
 
     &__number {
         position: absolute;
-        right: 289px;
-        top: 40%;
+        left: 227px;
+        top: 3%;
 
         @media (max-width: $breakpoint480) {
-            left: 150px;
-            top: 35%;
-            width: 0.75rem;
+            left: 110px;
+            top: -6px;
+            width: 6rem;
         }
     }
 
