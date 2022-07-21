@@ -142,7 +142,6 @@ scrollDown();
 
 (function () {
     const btn = document.querySelectorAll('#copy');
-    console.log('🚀 ~ btn', btn);
 
     if (btn) {
         btn.forEach((singleBtn) => {

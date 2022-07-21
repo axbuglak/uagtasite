@@ -1,5 +1,6 @@
 .server {
     margin-top: 30px;
+
     @media (max-width: $breakpoint480) {
         margin-top: 20px;
     }
@@ -18,19 +19,20 @@
         position: absolute;
         left: 255px;
         top: 51%;
-        transform: translateY(-49%);    
+        transform: translateY(-49%);
         width: 100px;
         height: 100px;
+
         @media (max-width: $breakpoint480) {
             left: 135px;
             height: 50px;
-            width: 50px;
-            top: 55%;
+            width: 54px;
+            top: 54%;
         }
 
         &-circle-full {
             fill: none;
-            stroke-width: 8px;
+            stroke-width: 7px;
             stroke: rgba(0, 0, 0, 0.2);
 
             @media (max-width: $breakpoint480) {
@@ -41,12 +43,12 @@
 
     &__number {
         position: absolute;
-        left: 227px;
+        left: 230px;
         top: 3%;
 
         @media (max-width: $breakpoint480) {
-            left: 110px;
-            top: -6px;
+            left: 111px;
+            top: -8px;
             width: 6rem;
         }
     }
@@ -135,20 +137,21 @@
     }
 
     &__circle-one {
-        $OnlineNow: -40;
+        // ***** 360 - 0 онлайн, 100 - 100% онлайна ***** //
+        $OnlineNow: 203;
         stroke-dasharray: 360;
         stroke-dashoffset: $OnlineNow;
         transition: 1s linear;
         fill: none;
-        stroke-width: 8px;
+        stroke-width: 7px;
         stroke-linecap: round;
-        stroke: #F3CB3C;
-        
+        stroke: #f3cb3c;
+        transform: rotate(93deg);
+        transform-origin: 46% 46%;
+
 
         @media (max-width: $breakpoint480) {
             stroke-width: 3px;
-            height: 50px;
-            width: 50px;
         }
     }
 }
