@@ -4,7 +4,6 @@
     align-items: center;
     padding: 15px 0px;
     overflow: hidden;
-    z-index: 100;
 
     &__sign {
         &-icon {
@@ -55,28 +54,32 @@
                 width: 100%;
                 content: '';
                 background: linear-gradient(180deg, rgba(243, 203, 60, 0.75) -6.1%, rgba(31, 25, 6, 0) 86.59%);
-                opacity: 0;
+                // opacity: 0;
+                transform: scaleY(0);
                 height: 70px;
                 position: absolute;
                 top: -45px;
                 left: 0;
-                transition: 0.5s linear;
+                transition: 0.3s linear;
             }
             &::before {
                 width: 100%;
                 content: '';
                 background: $yellowColor;
-                opacity: 0;
+                // opacity: 0;
+                transform: scaleX(0);
                 height: 5px;
                 position: absolute;
                 top: -45px;
                 left: 0;
-                transition: 0.05s linear;
+                transition: 0.2s linear;
             }
             
             &.active {
                 &:after, &::before {
-                    opacity: 1;
+                    transform: scaleY(1);
+                    transform: scaleX(1);
+                    // opacity: 1;
                 }
                 color: $yellowColor;
             }

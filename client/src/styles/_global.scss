@@ -1,0 +1,90 @@
+.container {
+  max-width: ($containerWidth + $containerPadding) + px;
+  margin: 0 auto;
+  padding: 0 $containerSidePadding;
+  z-index: 1;
+  
+  @media (max-width: $breakpoint1200) {
+    max-width: 1100px;
+  }
+  
+  @media (max-width: $breakpoint992) {
+    max-width: 970px;
+  }
+  
+  @media (max-width: $breakpoint768) {
+    max-width: 750px;
+  }
+  
+  @media (max-width: $breakpoint480) {
+    max-width: none;
+  }
+  
+}
+
+
+
+html {
+  scroll-behavior: smooth;
+}
+
+#app {
+  overflow: hidden;
+}
+
+body {
+  min-height: 100vh;
+  background: linear-gradient(360deg, #111003 18.38%, #0094FF 290.42%);
+  font-family: 'Montserrat', sans-serif;
+
+  
+  // &.locked {
+  //   overflow: hidden;
+  // }
+}
+
+// .section__btn
+.section__btn {
+  border: 1px solid $yellowColor;
+  padding: 6px 7px;
+  border-radius: 64px;
+  position: relative;
+  
+  div {
+    border-radius: 64px;
+    background: linear-gradient(97.58deg, #F3AA3C 3.79%, #FFEA31 106.95%);
+    padding: 13px 42px;
+    font-size: 20px;
+    line-height: 24px;
+    color: $greyColor;
+    
+    @media (max-width: $breakpoint480) {
+      padding: 5px 10px;
+      font-size: 16px;
+      line-height: 18px;
+    }
+  }
+  
+  
+  @media (max-width: $breakpoint480) {
+    padding: 3px 4px;
+  }
+}
+
+#btnGuid {
+  transform: 0.12s linear;
+  
+  &:hover {
+    transform: scale(1.025);
+  }
+}
+
+@keyframes fade {
+  0% {
+    opacity: 0;
+  }
+  
+  100% {
+    opacity: 1;
+  }
+}

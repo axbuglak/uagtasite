@@ -1,21 +1,23 @@
 <template>
-  <ul class="menu">
-    <li class="menu__item">1</li>
-    <li class="menu__item">2</li>
-    <li class="menu__item">3</li>
-    <li class="menu__item">4</li>
-    <li class="menu__item">5</li>
-  </ul>
+  <main-section>
+    <navbar />
+    <router-view> </router-view>
+  <footer-component class="mt-auto" />
+  </main-section>
 </template>
 
 <script lang="ts">
 import { defineComponent } from 'vue'
+import navbar from './components/navigationComponent.vue'
+import footerComponent from './components/footerComponent.vue'
 
 export default defineComponent({
-  name: 'App'
+  name: 'App',
+  components: {
+    navbar,
+    footerComponent,
+  }
 })
 </script>
 
-<style lang="scss" src="./scss/style.scss">
-
-</style>
+<style lang="scss" src="./styles/style.scss"></style>
