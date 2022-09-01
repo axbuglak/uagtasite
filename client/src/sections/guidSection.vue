@@ -86,39 +86,39 @@
   </section>
 </template>
 
-<script lang="ts">
+<script>
 import { defineComponent } from 'vue'
 
 export default defineComponent({
-
   mounted() {
     window.addEventListener('scroll', this.animOnScroll)
   },
   beforeUnmount() {
     window.removeEventListener('scroll', this.animOnScroll)
   },
+  computed: {
+    steps() {
+      return this.$refs.steps
+    }
+  },
   methods: {
     animOnScroll() {
-      const steps = this.$refs.steps.children
-      if (steps) {
-        Object.entries(steps).forEach((el: any) => {
-          const elHeight = el[1].offsetHeight
-          const elOffset = this.offset(el[1]).top
-          const scrollPos = window.pageYOffset + window.innerHeight
+      Object.entries(this.steps.children).forEach((el) => {
+        const elHeight = el[1].offsetHeight
+        const elOffset = this.offset(el[1])
+        const scrollPos = window.pageYOffset + window.innerHeight
 
-          if (elHeight + elOffset < scrollPos) {
-            el[1].classList.add('active')
-          } else {
-            el[1].classList.remove('active')
-          }
-        })
-      }
+        if (elHeight + elOffset < scrollPos) {
+          el[1].classList.add('active')
+        } else {
+          el[1].classList.remove('active')
+        }
+      })
     },
     offset(el) {
       const rect = el.getBoundingClientRect(),
-        scrollLeft = window.pageXOffset || document.documentElement.scrollLeft,
         scrollTop = window.pageYOffset || document.documentElement.scrollTop
-      return { top: rect.top + scrollTop, left: rect.left + scrollLeft }
+      return rect.top + scrollTop
     }
   }
 })

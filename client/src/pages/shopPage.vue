@@ -1,10 +1,9 @@
 <template>
-  <body class="shop__page">
-    @@include('./libs/header.html')
+  <main class="shop__page">
     <main class="main__shop">
-      <img class="shop__bg" src="./images/shopBg.png" alt="bg" />
-      <img class="shop__img1" src="./images/shopImg1.png" alt="img" />
-      <img class="shop__img2" src="./images/shopImg2.png" alt="img" />
+      <img class="shop__bg" src="../images/shopBg.png" alt="bg" />
+      <img class="shop__img1" src="../images/shopImg1.png" alt="img" />
+      <img class="shop__img2" src="../images/shopImg2.png" alt="img" />
       <div class="container">
         <form class="shop">
           <h1 class="shop__title">Поповнити рахунок</h1>
@@ -34,8 +33,7 @@
         </form>
       </div>
     </main>
-    <script src="./js/main.js"></script>
-  </body>
+  </main>
 </template>
 
 
