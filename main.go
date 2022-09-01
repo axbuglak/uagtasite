@@ -8,18 +8,31 @@ import (
 	"log"
 	"net/http"
 	"time"
+
+	"github.com/spf13/viper"
 )
 
 
 func main() {
+	if err := initConfig(); err != nil {
+		log.Fatalf("Init config error: %s", err.Error())
+	}
+
 	repos := repository.NewRepository()
 	services := service.NewService(repos)
 	handlers := handlers.NewHandler(services)
 	
 	srv := new(Server)
-	if err := srv.Run("8080", handlers.InitRoutes()); err != nil {
+	if err := srv.Run(viper.GetString("port"), handlers.InitRoutes()); err != nil {
 		log.Fatalf("Error while running server: %s", err.Error())
 	}
+}
+
+
+func initConfig() error {
+	viper.AddConfigPath("configs")
+	viper.SetConfigName("config")
+	return viper.ReadInConfig()
 }
 
 
