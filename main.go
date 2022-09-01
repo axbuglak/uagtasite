@@ -2,15 +2,22 @@ package main
 
 import (
 	"context"
+	"gta5site/uagtasite/handlers"
+	"gta5site/uagtasite/repository"
+	"gta5site/uagtasite/service"
+	"log"
 	"net/http"
 	"time"
-	"log"
 )
 
 
 func main() {
+	repos := repository.NewRepository()
+	services := service.NewService(repos)
+	handlers := handlers.NewHandler(services)
+	
 	srv := new(Server)
-	if err := srv.Run("8080"); err != nil {
+	if err := srv.Run("8080", handlers.InitRoutes()); err != nil {
 		log.Fatalf("Error while running server: %s", err.Error())
 	}
 }
@@ -21,9 +28,10 @@ type Server struct {
 }
 
 
-func (s *Server) Run(port string) error {
+func (s *Server) Run(port string, handler http.Handler) error {
 	s.httpServer = &http.Server{
 		Addr: ":" + port,
+		Handler: handler,
 		MaxHeaderBytes: 1 << 20, //1 M,
 		ReadTimeout: 10 * time.Second,
 		WriteTimeout: 10 * time.Second,
